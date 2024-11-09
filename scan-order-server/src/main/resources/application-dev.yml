@@ -1,0 +1,32 @@
+scan:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    port: 3306
+    database: nau_scan_project
+    username: root
+    password: dfh123456
+  redis:
+    host: localhost
+    port: 6379
+    database: 1
+  images:
+    path: /Users/dufeihu/Documents/考研/NAU/project/imgs/
+  wechat:
+    appid: xxx
+    secret: xxx
+    mchid: xxx
+    mchSerialNo: xxx
+    privateKeyFilePath: xxx
+    apiV3Key: xxx
+    weChatPayCertFilePath: xxx
+    subMchid: 1622832899
+    notifyUrl: xxx
+    refundNotifyUrl: xxx
+  alipay:
+    appid: xxx
+    appPublicCertPath: xxx
+    aliPublicCertPath: xxx
+    aliRootCertPath: xxx
+    publicKey: xxx
+    privateKey: xxx

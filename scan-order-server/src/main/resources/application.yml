@@ -1,0 +1,68 @@
+server:
+  port: 8081
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+    druid:
+      driver-class-name: ${scan.datasource.driver-class-name}
+      url: jdbc:mysql://${scan.datasource.host}:${scan.datasource.port}/${scan.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${scan.datasource.username}
+      password: ${scan.datasource.password}
+  redis:
+    host: ${scan.redis.host}
+    port: ${scan.redis.port}
+    database: ${scan.redis.database}
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.cowain.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    org:
+      cowain:
+        mapper: info
+        service: info
+        controller: info
+
+scan:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    admin-secret-key: cowain
+    # 设置jwt过期时间
+    admin-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+    user-secret-key: cowain_mobile
+    user-ttl: 7200000
+    user-token-name: authentication
+  images:
+    path: ${scan.images.path}
+  wechat:
+    appid: ${scan.wechat.appid}
+    secret: ${scan.wechat.secret}
+    mchid: ${scan.wechat.mchid}
+    mchSerialNo: ${scan.wechat.mchSerialNo}
+    privateKeyFilePath: ${scan.wechat.privateKeyFilePath}
+    apiV3Key: ${scan.wechat.apiV3Key}
+    weChatPayCertFilePath: ${scan.wechat.weChatPayCertFilePath}
+    subMchid: ${scan.wechat.subMchid}}
+    notifyUrl: ${scan.wechat.notifyUrl}
+    refundNotifyUrl: ${scan.wechat.refundNotifyUrl}
+  alipay:
+    appid: ${scan.alipay.appid}
+    privateKey: ${scan.alipay.privateKey}
+    publicKey: ${scan.alipay.publicKey}
+    appPublicCertPath: ${scan.alipay.appPublicCertPath}
+    aliPublicCertPath: ${scan.alipay.aliPublicCertPath}
+    aliRootCertPath: ${scan.alipay.aliRootCertPath}
+
+
